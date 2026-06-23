@@ -188,6 +188,35 @@ Before writing any code, both engineers must finalize the signaling protocol con
 \label{fig:phase1_flow}
 \end{figure}
 
+\subsection{Signaling Protocol Walkthrough}
+To ensure clear alignment between Engineer A and Engineer B, the sequence of events highlighted in \Cref{fig:phase1_flow} must execute exactly as follows:
+
+\begin{enumerate}
+    \item \textbf{\texttt{join-room} (Client 1 $\rightarrow$ Server):} 
+    When the first user (Client 1, developed by Engineer B) opens the application and enters a room, the client emits a socket event containing the \texttt{roomId} and their chosen \texttt{username}. The server registers Client 1's socket session and adds it to the corresponding room room pool.
+    
+    \item \textbf{\texttt{join-room} (Client 2 $\rightarrow$ Server):} 
+    When the second user (Client 2) enters the same room, their client emits a matching \texttt{join-room} event. The server registers Client 2 and checks that the occupancy of the room does not exceed 2 (the limit for Phase 1's one-to-one baseline).
+    
+    \item \textbf{\texttt{user-joined} (Server $\rightarrow$ Client 1):} 
+    Once Client 2 has joined successfully, the signaling server emits a \texttt{user-joined} event *exclusively* to the first client (Client 1). This packet carries the unique \texttt{socketId} of Client 2, informing Client 1 that a remote peer is present and ready to initiate the WebRTC handshake.
+    
+    \item \textbf{\texttt{send-offer} (Client 1 $\rightarrow$ Server):} 
+    Upon receiving \texttt{user-joined}, Client 1 initializes their local \texttt{RTCPeerConnection}, requests camera/microphone access, attaches these local media tracks to the connection, and calls \texttt{createOffer()}. The resulting Session Description Protocol (SDP) offer is sent to the server in a \texttt{send-offer} packet, addressed to Client 2's socket ID.
+    
+    \item \textbf{\texttt{relay-offer} (Server $\rightarrow$ Client 2):} 
+    The server acts as a relay, receiving the \texttt{send-offer} payload and instantly forwarding it as a \texttt{relay-offer} event to the target client (Client 2). This packet contains Client 1's original SDP offer and their source socket ID.
+    
+    \item \textbf{\texttt{send-answer} (Client 2 $\rightarrow$ Server):} 
+    Client 2 receives the SDP offer, applies it as their Remote Description, initializes their own camera/microphone streams, adds their media tracks to their local \texttt{RTCPeerConnection}, and calls \texttt{createAnswer()}. The generated local SDP answer is wrapped in a \texttt{send-answer} packet and sent back to the server, targeting Client 1's socket ID.
+    
+    \item \textbf{\texttt{relay-answer} (Server $\rightarrow$ Client 1):} 
+    The server receives the answer and relays it to Client 1 as a \texttt{relay-answer} event. Client 1 receives this answer and applies it as their Remote Description, completing the initial SDP negotiation.
+    
+    \item \textbf{ICE Candidate Relaying \& P2P Stream Established (Client 1 $\leftrightarrow$ Client 2):} 
+    Concurrently, as each client discovers viable local network interfaces and router mappings (via public STUN servers), their respective browser WebRTC engines fire \texttt{onicecandidate} events. These candidates are relayed back and forth through the signaling server. Once a compatible connection pathway is successfully verified, the clients establish a secure, direct peer-to-peer connection (using DTLS/SRTP) to stream audio and video tracks without routing media through the backend server.
+\end{enumerate}
+
 \subsection{Step 2: Backend Core Setup (Engineer A)}
 Engineer A initiates the workspace backend folder structure:
 \begin{lstlisting}[language=bash]

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.19)  23 JUN 2026 22:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.19)  23 JUN 2026 22:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -921,39 +921,41 @@ File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 175.
-
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 195.
+ [5]
 (D:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) (D:\Users\VICTUS\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.st
 y
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-Overfull \hbox (51.11156pt too wide) in paragraph at lines 199--200
+Overfull \hbox (51.11156pt too wide) in paragraph at lines 228--229
 \OT1/cmr/m/n/10.95 (-20) with CORS set-tings al-low-ing traf-fic from the fron-
 tend de-vel-op-ment port (typ-i-cally \OT1/cmtt/m/n/10.95 http://localhost:5173
 \OT1/cmr/m/n/10.95 (-20) ). 
  []
 
-[5]
-Underfull \hbox (badness 3250) in paragraph at lines 229--230
+[6]
+Underfull \hbox (badness 3250) in paragraph at lines 258--259
 []\OT1/cmr/m/n/10.95 (+20) Complete sig-nal-ing event lis-ten-ers (\OT1/cmtt/m/
 n/10.95 offer\OT1/cmr/m/n/10.95 (+20) ,
  []
 
-[6] [7] [8] (phaseone.aux)
+[7] [8] [9] (phaseone.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `phaseone.out' has not changed.
-(rerunfilecheck)             Checksum: C31B0EA02181B7A2013B989B526B893B;4274.
+(rerunfilecheck)             Checksum: 25ADE39EFB352FC71F71412A2E206424;4488.
  ) 
 Here is how much of TeX's memory you used:
- 27587 strings out of 467871
- 514295 string characters out of 5417892
- 1225174 words of memory out of 5000000
- 55896 multiletter control sequences out of 15000+600000
- 640404 words of font info for 124 fonts, out of 8000000 for 9000
+ 27628 strings out of 467871
+ 514654 string characters out of 5417892
+ 1221441 words of memory out of 5000000
+ 55899 multiletter control sequences out of 15000+600000
+ 641145 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,11n,94p,1007b,1274s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\VICTUS\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcr
@@ -970,9 +972,9 @@ fb><D:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb><D:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb><D:/Users/VICTUS/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmtt10.pfb>
-Output written on phaseone.pdf (8 pages, 210654 bytes).
+Output written on phaseone.pdf (9 pages, 217307 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 35997 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 94 named destinations out of 1000 (max. 500000)
+ 36005 words of extra memory for PDF output out of 42996 (max. 10000000)
 
