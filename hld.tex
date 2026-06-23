@@ -10,7 +10,6 @@
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{microtype}
-\usepackage{cleveref}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric, calc}
 
@@ -24,6 +23,7 @@
     pdftitle={MeetFlow - High-Level Design (HLD)},
     pdfauthor={MeetFlow Engineering Team}
 }
+\usepackage{cleveref}
 
 % --- Custom Page Layout ---
 \pagestyle{fancy}
@@ -130,7 +130,7 @@ The system comprises the following primary building blocks:
 \begin{tikzpicture}[
     node distance=2cm and 2.5cm,
     box/.style={draw, fill=blue!8, rectangle, minimum height=3.5em, minimum width=7em, rounded corners, align=center, font=\small\sffamily},
-    db/.style={draw, fill=green!8, cylinder, cylinder points=20, shape border rotate=90, minimum height=3.5em, minimum width=5em, align=center, font=\small\sffamily},
+    db/.style={draw, fill=green!8, cylinder, shape border rotate=90, minimum height=3.5em, minimum width=5em, align=center, font=\small\sffamily},
     server/.style={draw, fill=orange!8, rectangle, minimum height=3.5em, minimum width=8em, rounded corners, align=center, font=\small\sffamily},
     relay/.style={draw, fill=yellow!8, diamond, aspect=1.8, minimum width=6em, align=center, font=\small\sffamily},
     line/.style={draw, -{Latex[scale=0.8]}, thick},
@@ -145,8 +145,8 @@ The system comprises the following primary building blocks:
     \node[relay, above=1.5cm of $(userA.north)!0.5!(userB.north)$] (turn) {Coturn Server\\(STUN / TURN)};
 
     % Lines
-    \draw[line] (userA.south) -- (sigServer.north-west) node[midway, left, font=\scriptsize] {HTTPS / WSS};
-    \draw[line] (userB.south) -- (sigServer.north-east) node[midway, right, font=\scriptsize] {HTTPS / WSS};
+    \draw[line] (userA.south) -- (sigServer.north west) node[midway, left, font=\scriptsize] {HTTPS / WSS};
+    \draw[line] (userB.south) -- (sigServer.north east) node[midway, right, font=\scriptsize] {HTTPS / WSS};
     \draw[line] (sigServer) -- (mysql) node[midway, right, font=\scriptsize] {SQL Queries};
     
     % STUN/TURN lines
@@ -325,7 +325,7 @@ Audits individual attendees for analytics and history display.
   "message": "User registered successfully",
   "userId": 101
 }
-\\end{lstlisting}
+\end{lstlisting}
 \end{itemize}
 
 \subsubsection{User Login}
@@ -409,7 +409,7 @@ These events are transmitted using Socket.IO during an active video conference.
     "sdpMLineIndex": 0
   }
 }
-\\end{lstlisting}
+\end{lstlisting}
 \end{itemize}
 
 % =========================================================================
