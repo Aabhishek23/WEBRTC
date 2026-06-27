@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Scenario 1: Peer-to-Peer Without NAT (The Ideal Case)}{3}{section.2}%
+\contentsline {section}{\numberline {3}Scenario 2: Peer-to-Peer with NAT (The Real-World Case)}{4}{section.3}%
+\contentsline {section}{\numberline {4}The Three Core Problems of NAT in P2P}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Problem 1: Non-Routable Private IP Addresses}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Problem 2: NAT Port-Binding and Incoming Packet Filtering}{4}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}The Unsolicited Incoming Packet Problem}{5}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}Problem 3: Mutual Isolation (The Double-NAT Lockout)}{5}{subsection.4.3}%
+\contentsline {section}{\numberline {5}How WebRTC Resolves NAT: STUN, ICE, and TURN}{6}{section.5}%
+\contentsline {subsection}{\numberline {5.1}STUN (Session Traversal Utilities for NAT)}{6}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}ICE (Interactive Connectivity Establishment) Candidate Exchange}{6}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}ICE Connectivity Checks (Hole Punching)}{7}{subsection.5.3}%
+\contentsline {section}{\numberline {6}When P2P Fails: Symmetric NAT and TURN Servers}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Symmetric NAT Behavior}{8}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}TURN (Traversal Using Relays around NAT)}{8}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Summary: The WebRTC Connection Lifecycle}{8}{section.7}%
