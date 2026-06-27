@@ -369,6 +369,9 @@ class GitHubIssueApp:
         self.open_browser_btn = ttk.Button(remote_bottom, text="🌐 Open Selected in Browser", command=self.open_remote_issue_in_browser)
         self.open_browser_btn.pack(side=tk.LEFT, padx=5)
 
+        self.delete_remote_btn = ttk.Button(remote_bottom, text="🗑️ Delete Selected Issue", command=self.delete_remote_issue)
+        self.delete_remote_btn.pack(side=tk.RIGHT, padx=(5, 0))
+
     # --- INITIAL LOADERS & AUTHS ---
 
     def check_auth_async(self):
@@ -521,6 +524,50 @@ class GitHubIssueApp:
                 messagebox.showerror("Error", "Could not find URL for this issue.")
         except ValueError:
             pass
+
+    def delete_remote_issue(self):
+        selected = self.remote_tree.selection()
+        if not selected:
+            messagebox.showinfo("Selection Required", "Please select an issue from the list to delete.")
+            return
+
+        row_values = self.remote_tree.item(selected[0], "values")
+        if not row_values:
+            return
+
+        try:
+            num = int(row_values[0].replace("#", ""))
+            title = row_values[1]
+        except (ValueError, IndexError):
+            return
+
+        confirm = messagebox.askyesno(
+            "⚠️ Delete Issue",
+            f"Are you sure you want to PERMANENTLY DELETE issue #{num}?\n\n\"{title}\"\n\nThis cannot be undone!",
+            icon="warning"
+        )
+        if not confirm:
+            return
+
+        self.delete_remote_btn.config(state=tk.DISABLED)
+        self.refresh_remote_btn.config(state=tk.DISABLED)
+
+        def run_delete():
+            try:
+                subprocess.run(["gh", "issue", "delete", str(num), "--yes"],
+                               capture_output=True, text=True, check=True)
+                self.root.after(0, lambda: messagebox.showinfo(
+                    "Deleted", f"Issue #{num} has been permanently deleted from GitHub."))
+                self.root.after(0, self.fetch_remote_issues_async)
+            except subprocess.CalledProcessError as e:
+                err = e.stderr.strip() or e.stdout.strip() or "Unknown error"
+                self.root.after(0, lambda: messagebox.showerror(
+                    "Delete Failed", f"Could not delete issue #{num}:\n{err}"))
+            finally:
+                self.root.after(0, lambda: self.delete_remote_btn.config(state=tk.NORMAL))
+                self.root.after(0, lambda: self.refresh_remote_btn.config(state=tk.NORMAL))
+
+        threading.Thread(target=run_delete, daemon=True).start()
 
     # --- UI CHECKBOX BUILDERS ---
 
