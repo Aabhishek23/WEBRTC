@@ -108,7 +108,7 @@ class GitHubIssueApp:
         self.check_auth_async()
         self.fetch_collaborators_async()
         self.fetch_labels_async()
-        self.load_initial_json()
+        # Do NOT auto-load — table starts empty
 
     def build_ui(self):
         # 1. TOP HEADER BANNER
@@ -810,11 +810,8 @@ class GitHubIssueApp:
     # --- UI ACTIONS / FORM HANDLERS ---
 
     def load_initial_json(self):
-        """Auto-loads issues.json if it exists."""
-        if os.path.exists(self.json_file_path):
-            self.load_issues(self.json_file_path)
-        else:
-            self.file_status_lbl.config(text="No file loaded")
+        """Called on startup — table starts empty by default."""
+        self.file_status_lbl.config(text="No file loaded — use 'Load JSON File' to import")
 
     def load_issues(self, file_path):
         self.json_file_path = file_path
