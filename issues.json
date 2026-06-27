@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Phase 1 - Day 1 [Backend]: Setup Express App & Room Generator API",
+    "body": "Setup basic Express app, configure environmental variables, and build a REST API (POST /api/rooms) returning a unique 9-digit hyphenated Room ID (XXX-XXX-XXX).",
+    "assignee": "@me",
+    "labels": ["backend", "enhancement", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 1 [Frontend]: React Boilerplate & Landing Page",
+    "body": "Create frontend boilerplate with routing. Design the landing page containing a text input for Room ID, user nickname, and join/create buttons.",
+    "assignee": "",
+    "labels": ["frontend", "enhancement", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 2 [Backend]: Socket.IO Init & Room State Control",
+    "body": "Initialize Socket.IO connection handlers. Write room state management to prevent more than two users from joining the same room (One-to-One boundary limit).",
+    "assignee": "@me",
+    "labels": ["backend", "enhancement", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 2 [Frontend]: Camera/Mic Selection & Local Stream",
+    "body": "Add camera and microphone selection logic. Render the local camera track onto a <video> component with audio muted locally to prevent loop feedback.",
+    "assignee": "",
+    "labels": ["frontend", "enhancement", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 3 [Backend]: Socket Signaling Event Listeners",
+    "body": "Complete signaling event listeners (offer, answer, ice-candidate) that target a specific peer socket to enable relaying.",
+    "assignee": "@me",
+    "labels": ["backend", "enhancement", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 3 [Frontend]: Socket Connection & Context Manager",
+    "body": "Build the Socket manager in React using React contexts or custom hooks. Verify connection states, connect client sockets, and join the correct room pool.",
+    "assignee": "",
+    "labels": ["frontend", "enhancement", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 4 [Integration]: Link Frontend Client Sockets with Backend",
+    "body": "Integration Day 1: Link frontend client sockets to the backend. Verify logging on server when a user enters/leaves, and check user count limits.",
+    "assignee": "@me",
+    "labels": ["integration", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 5 [Frontend]: WebRTC RTCPeerConnection Lifecycle",
+    "body": "Write the WebRTC core handshake: Instantiate RTCPeerConnection, attach media tracks, capture generated local ICE candidates, and trigger SDP offer generation upon receiving user-joined event.",
+    "assignee": "",
+    "labels": ["frontend", "enhancement", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 5 [Backend]: Real-time Logging & STUN configs",
+    "body": "Assist with real-time logging, testing websocket packet integrity, and configuring fallback STUN servers on the signaling endpoints.",
+    "assignee": "@me",
+    "labels": ["backend", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 6 [Integration]: Complete WebRTC Handshake & Remote Stream Render",
+    "body": "Integration Day 2: Verify the complete WebRTC handshake. Configure the remote stream component, bind incoming tracks to the remoteVideo HTML element, and test audio/video flow.",
+    "assignee": "@me",
+    "labels": ["integration", "Phase 1"]
+  },
+  {
+    "title": "Phase 1 - Day 7 [Testing]: Local Loopback & NAT Traversal Tests",
+    "body": "Perform local loopback tests, verify NAT traversal on different browser engines (Chrome vs Firefox/Safari), and package codebase for Phase 2.",
+    "assignee": "@me",
+    "labels": ["testing", "Phase 1"]
+  }
+]
