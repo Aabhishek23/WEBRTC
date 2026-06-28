@@ -1,68 +1,44 @@
 [
   {
-    "title": "Phase 1 - Day 1 [Backend]: Setup Express App & Room Generator API",
-    "body": "Setup basic Express app, configure environmental variables, and build a REST API (POST /api/rooms) returning a unique 9-digit hyphenated Room ID (XXX-XXX-XXX).",
-    "assignee": "@me",
-    "labels": ["backend", "enhancement", "Phase 1"]
+    "title": "Day 1 - Backend Setup & API",
+    "body": "## 📌 Objective\nNode.js Express server set up karein. Environment configuration add karein aur ek API endpoint `POST /api/rooms` banayein jo unique 9-digit room ID (XXX-XXX-XXX) return kare.\n\n## ✅ Tasks\n- [ ] Node.js project initialize karein (`npm init`)\n- [ ] Express.js install aur server entry point banayein (`server.js`)\n- [ ] `dotenv` setup karein aur `.env` file configure karein (PORT, NODE_ENV)\n- [ ] `POST /api/rooms` endpoint implement karein\n- [ ] Unique 9-digit room ID generate karne ka logic likhein (format: XXX-XXX-XXX)\n- [ ] Basic error handling middleware add karein\n- [ ] Server health-check endpoint add karein (`GET /api/health`)\n\n## 🎯 Acceptance Criteria\n- Server successfully starts on configured PORT\n- `POST /api/rooms` returns a unique room ID in XXX-XXX-XXX format\n- Environment variables `.env` file se load hoti hain\n- Duplicate room ID generate na ho",
+    "assignees": ["Aabhishek23"],
+    "labels": ["enhancement", "backend", "setup", "api", "Day-1"]
   },
   {
-    "title": "Phase 1 - Day 1 [Frontend]: React Boilerplate & Landing Page",
-    "body": "Create frontend boilerplate with routing. Design the landing page containing a text input for Room ID, user nickname, and join/create buttons.",
-    "assignee": "",
-    "labels": ["frontend", "enhancement", "Phase 1"]
+    "title": "Day 2 - Socket.IO & Room State Management",
+    "body": "## 📌 Objective\nSocket.IO server initialize karein. Room state management code likhein taaki ek room me max 2 users hi connect ho sakein (One-to-One baseline enforce karne ke liye).\n\n## ✅ Tasks\n- [ ] `socket.io` package install karein aur Express server ke saath integrate karein\n- [ ] In-memory room state store banayein (Map ya Object)\n- [ ] Socket `connection` aur `disconnection` events handle karein\n- [ ] Room join logic implement karein: room exists check, user count check\n- [ ] Max 2 users per room restriction enforce karein\n- [ ] Room full hone par client ko `room-full` error event emit karein\n- [ ] User disconnect hone par room state clean up karein\n- [ ] CORS configuration Socket.IO ke liye add karein\n\n## 🎯 Acceptance Criteria\n- Socket.IO server successfully initialize ho\n- Ek room mein sirf 2 users hi join kar sakein\n- Teesra user join karne ki koshish kare toh `room-full` error mile\n- User disconnect hone par room state correctly update ho\n- Empty rooms automatically clean up ho jayein",
+    "assignees": ["Aabhishek23"],
+    "labels": ["enhancement", "backend", "socket.io", "room-management", "Day-2"]
   },
   {
-    "title": "Phase 1 - Day 2 [Backend]: Socket.IO Init & Room State Control",
-    "body": "Initialize Socket.IO connection handlers. Write room state management to prevent more than two users from joining the same room (One-to-One boundary limit).",
-    "assignee": "@me",
-    "labels": ["backend", "enhancement", "Phase 1"]
+    "title": "Day 3 - Signaling Event Relay Implementation",
+    "body": "## 📌 Objective\nSignaling ke core socket events (`offer`, `answer`, `ice-candidate`) ke listener aur relay events implement karein taaki targets socket connection par parameters sahi relay hon.\n\n## ✅ Tasks\n- [ ] `offer` socket event listener implement karein\n- [ ] `answer` socket event listener implement karein\n- [ ] `ice-candidate` socket event listener implement karein\n- [ ] Events ko room ke dusre peer tak correctly relay karne ka logic likhein\n- [ ] Sender ko khud apna event return na ho (`socket.to(roomId).emit()`)\n- [ ] Room membership validate karein relay se pehle\n- [ ] Invalid/malformed signaling payloads ke liye error handling add karein\n\n## 🎯 Acceptance Criteria\n- Peer A ka `offer` event Peer B tak relay ho\n- Peer B ka `answer` event Peer A tak relay ho\n- ICE candidates dono peers ke beech sahi relay hon\n- Sender ko apna khud ka event wapas na mile\n- Room se bahar ka koi user signaling events relay na kar sake",
+    "assignees": ["Aabhishek23"],
+    "labels": ["enhancement", "backend", "signaling", "webrtc", "socket-events", "Day-3"]
   },
   {
-    "title": "Phase 1 - Day 2 [Frontend]: Camera/Mic Selection & Local Stream",
-    "body": "Add camera and microphone selection logic. Render the local camera track onto a <video> component with audio muted locally to prevent loop feedback.",
-    "assignee": "",
-    "labels": ["frontend", "enhancement", "Phase 1"]
+    "title": "Day 4 - Frontend-Backend Integration",
+    "body": "## 📌 Objective\nFrontend React app ko backend Socket se connect karein. Server and client connection logs verify karein, check karein ki room entry restrictions aur limits sahi chal rahi hain.\n\n## ✅ Tasks\n- [ ] `socket.io-client` React frontend mein install karein\n- [ ] Socket connection hook banayein (`useSocket.js`)\n- [ ] Frontend se backend Socket server se connection establish karein\n- [ ] Room join flow UI se trigger karein aur socket event bhejein\n- [ ] Server-side connection logs verify karein (terminal mein)\n- [ ] Client-side connection confirmation log karein (browser console)\n- [ ] Room full restriction test karein: teen window kholo, teesra block ho\n- [ ] `REACT_APP_SERVER_URL` environment variable configure karein\n\n## 🎯 Acceptance Criteria\n- React app Socket server se successfully connect ho\n- Browser console mein connection confirmation dikh rahi ho\n- Server terminal mein client connection logs aa rahein hon\n- Room join 2 users tak simit ho — teesra user block ho\n- Room ID frontend se backend tak correctly pass ho",
+    "assignees": ["Aabhishek23", "SRRain750"],
+    "labels": ["enhancement", "integration", "frontend", "backend", "react", "Day-4"]
   },
   {
-    "title": "Phase 1 - Day 3 [Backend]: Socket Signaling Event Listeners",
-    "body": "Complete signaling event listeners (offer, answer, ice-candidate) that target a specific peer socket to enable relaying.",
-    "assignee": "@me",
-    "labels": ["backend", "enhancement", "Phase 1"]
+    "title": "Day 5 - Logging & WebRTC Helper Configuration",
+    "body": "## 📌 Objective\nReal-time debug logging set up karein. WebSocket packets ki structure integrity check karein aur external STUN configurations me design help karein.\n\n## ✅ Tasks\n- [ ] Structured logging library add karein (`morgan` ya `winston`)\n- [ ] Socket event logging middleware implement karein (event name, room, socket ID)\n- [ ] WebSocket packet structure validator likhein (payload fields check karein)\n- [ ] STUN server configuration object define karein (Google/Cloudflare STUN)\n- [ ] ICEServers config ko environment-aware banayein (dev vs prod STUN URLs)\n- [ ] Log levels configure karein (debug, info, warn, error)\n- [ ] Server startup logs meaningful banayein (port, env, socket status)\n\n## 🎯 Acceptance Criteria\n- Har socket event log ho (event type, roomId, socketId, timestamp)\n- Malformed WebSocket packets caught aur logged hon\n- STUN server config correctly defined aur accessible ho\n- Log levels environment ke hisaab se switch karein\n- Server startup clearly config details print kare",
+    "assignees": ["Aabhishek23"],
+    "labels": ["enhancement", "logging", "debugging", "stun", "webrtc-config", "Day-5"]
   },
   {
-    "title": "Phase 1 - Day 3 [Frontend]: Socket Connection & Context Manager",
-    "body": "Build the Socket manager in React using React contexts or custom hooks. Verify connection states, connect client sockets, and join the correct room pool.",
-    "assignee": "",
-    "labels": ["frontend", "enhancement", "Phase 1"]
+    "title": "Day 6 - E2E WebRTC SDP Handshake Testing",
+    "body": "## 📌 Objective\nFull WebRTC SDP Offer-Answer handshake test karein, remote streams trace karein aur local loopback connections test karein.\n\n## ✅ Tasks\n- [ ] Peer A se SDP Offer generate aur server ko bhejein\n- [ ] Peer B tak Offer relay verify karein\n- [ ] Peer B se SDP Answer generate aur relay karein\n- [ ] Peer A tak Answer delivery verify karein\n- [ ] ICE candidates exchange trace karein (dono peers ke liye)\n- [ ] Local media stream (`getUserMedia`) capture aur display test karein\n- [ ] Remote stream Peer B par display hona verify karein\n- [ ] Local loopback connection test karein (ek tab mein dono peers simulate)\n- [ ] `RTCPeerConnection` state transitions log karein (`new → connecting → connected`)\n\n## 🎯 Acceptance Criteria\n- SDP Offer-Answer cycle successfully complete ho\n- ICE candidates dono peers ke beech exchange ho\n- Local video stream browser mein dikh raha ho\n- Remote video stream dusre peer par dikh raha ho\n- `RTCPeerConnection` state `connected` tak pahunche\n- Loopback test mein media successfully flow kare",
+    "assignees": ["Aabhishek23", "SRRain750"],
+    "labels": ["enhancement", "e2e-testing", "webrtc", "sdp", "handshake", "streams", "Day-6"]
   },
   {
-    "title": "Phase 1 - Day 4 [Integration]: Link Frontend Client Sockets with Backend",
-    "body": "Integration Day 1: Link frontend client sockets to the backend. Verify logging on server when a user enters/leaves, and check user count limits.",
-    "assignee": "@me",
-    "labels": ["integration", "Phase 1"]
-  },
-  {
-    "title": "Phase 1 - Day 5 [Frontend]: WebRTC RTCPeerConnection Lifecycle",
-    "body": "Write the WebRTC core handshake: Instantiate RTCPeerConnection, attach media tracks, capture generated local ICE candidates, and trigger SDP offer generation upon receiving user-joined event.",
-    "assignee": "",
-    "labels": ["frontend", "enhancement", "Phase 1"]
-  },
-  {
-    "title": "Phase 1 - Day 5 [Backend]: Real-time Logging & STUN configs",
-    "body": "Assist with real-time logging, testing websocket packet integrity, and configuring fallback STUN servers on the signaling endpoints.",
-    "assignee": "@me",
-    "labels": ["backend", "Phase 1"]
-  },
-  {
-    "title": "Phase 1 - Day 6 [Integration]: Complete WebRTC Handshake & Remote Stream Render",
-    "body": "Integration Day 2: Verify the complete WebRTC handshake. Configure the remote stream component, bind incoming tracks to the remoteVideo HTML element, and test audio/video flow.",
-    "assignee": "@me",
-    "labels": ["integration", "Phase 1"]
-  },
-  {
-    "title": "Phase 1 - Day 7 [Testing]: Local Loopback & NAT Traversal Tests",
-    "body": "Perform local loopback tests, verify NAT traversal on different browser engines (Chrome vs Firefox/Safari), and package codebase for Phase 2.",
-    "assignee": "@me",
-    "labels": ["testing", "Phase 1"]
+    "title": "Day 7 - Cross-Browser Testing & Phase 2 Preparation",
+    "body": "## 📌 Objective\nAlag-alag browsers (Chrome vs Firefox/Safari) par check karein aur dynamic environment parameters check karke Phase 2 ke liye codebase ready karein.\n\n## ✅ Tasks\n- [ ] Chrome mein full handshake aur video call test karein\n- [ ] Firefox mein full handshake aur video call test karein\n- [ ] Safari mein basic compatibility check karein\n- [ ] Chrome ↔ Firefox cross-browser call test karein\n- [ ] Browser-specific WebRTC API differences document karein\n- [ ] Dynamic environment variables verify karein (dev, staging, prod configs)\n- [ ] Codebase refactor: unused code clean karein, TODOs resolve karein\n- [ ] `README.md` update karein with Phase 1 status aur Phase 2 next steps\n- [ ] Git repository clean karein aur Phase 1 tag lagayein (`v1.0-phase1`)\n\n## 🎯 Acceptance Criteria\n- Chrome mein video call successfully kaam kare\n- Firefox mein video call successfully kaam kare\n- Chrome ↔ Firefox cross-browser call kaam kare\n- Safari mein koi critical blocker na ho\n- Dynamic env config correctly load ho (dev vs prod)\n- Codebase Phase 2 development ke liye ready ho\n- README Phase 1 status clearly document kare",
+    "assignees": ["Aabhishek23", "SRRain750"],
+    "labels": ["enhancement", "cross-browser", "testing", "chrome", "firefox", "phase-2-prep", "Day-7"]
   }
 ]
