@@ -1,1 +1,16 @@
 WebRTCDetailedAnimation.mp4
+
+# Dependencies
+node_modules/
+
+# Environment variables (NEVER commit these)
+.env
+server/.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

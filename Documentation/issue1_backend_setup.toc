@@ -1,0 +1,32 @@
+\contentsline {section}{\numberline {1}Issue Overview}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Objective}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Scope}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Project Structure}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Directory Layout}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Design Rationale}{4}{subsection.2.2}%
+\contentsline {section}{\numberline {3}API Specification}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}POST /api/rooms}{4}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Success Response}{4}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Error Response}{4}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}GET /api/health}{5}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Success Response}{5}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}GET /api/rooms/:roomId}{5}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Implementation Details}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Room ID Generation Algorithm}{6}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Algorithm Properties}{6}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Server Entry Point}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Environment Configuration}{7}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Request--Response Flow Diagram}{8}{section.5}%
+\contentsline {section}{\numberline {6}Testing \& Verification}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Manual Test Results}{8}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Test 1 --- Health Check Endpoint}{8}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Test 2 --- Room Creation}{9}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}Acceptance Criteria Verification}{9}{subsection.6.2}%
+\contentsline {section}{\numberline {7}npm Scripts Reference}{10}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Installing Dependencies}{10}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Installed Packages}{10}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Known Limitations \& Future Work}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Current Limitations (Phase 1)}{10}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Phase 2 / Phase 3 Improvements}{10}{subsection.8.2}%
+\contentsline {section}{\numberline {9}GitHub Closing Comment Template}{11}{section.9}%
+\contentsline {section}{\numberline {10}Revision History}{11}{section.10}%
